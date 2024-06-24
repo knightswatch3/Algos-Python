@@ -5,8 +5,15 @@ def firstNFactors(inputNum: int, count:int):
         print("Given count of factors cannot be greater than input number")
         return
     else:
-        factors = [i for i in range(1, count+1) if inputNum%i==0]
-        return factors
+        # factors = [i for i in range(1, count+1) if inputNum%i==0]
+        i=1
+        res=[]
+        while count>0 and i<inputNum:
+            if inputNum%i==0:
+                res.append(i)   
+                count-=1
+            i+=1
+        return res
 
-print(firstNFactors(10,5))
+print(firstNFactors(20,3))
 

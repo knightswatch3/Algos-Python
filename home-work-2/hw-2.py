@@ -1,12 +1,19 @@
 import math
     # Find list whose sum is the most
+def sumfun(lst):
+ add=0
+ for i in lst: 
+    add+=i
+ return add
 def maxSum(lisOflis: list[list[int]]):
     # Approach-1 I can fetch the sum of the list and map it to the index and return the index with max sum
     # Approach-2 Googled the max function definition and found that I can use something called a key
-    return max(lisOflis, key=lambda lst: max(lst))
+    
+    sumList = [subLst for subLst in lisOflis]
+    return max(lisOflis, key=lambda lst: sumfun(lst))
 
 print(maxSum([
-    [1,2,3],
+    [123,2,3],
     [7,0,1],
     [0,3,9]
 ]))
@@ -45,7 +52,7 @@ print(lastthree([[1, 2, 3, 4, 5],
 
 # Get a list of sum of odd values in each list 
 def oddsum(lisOflis: list[list[int]]):
-    return [sum(lst[1::2]) for lst in lisOflis]
+    return [sum([i for i in lst if i%2!=0]) for lst in lisOflis]
 
 print(oddsum([[1, 2, 3, 4, 5],
     [10, 20, 30, 40, 50, 60],

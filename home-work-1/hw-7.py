@@ -13,4 +13,5 @@ def common(numeric1:int, numeric2:int):
     return commonCount
 
 print(common(123,2334))
- 
+# find out TC for lines 7 and 8
+#  rewrite the code without set
