@@ -18,22 +18,22 @@
 # Output: false
 
 def patternChecker(pattern: str, inputString: str):
-    patternList = list(pattern)
-    inputList = inputString.split(" ")
-    if(len(set(patternList))!=len(set(inputList))):
+    patternList = list(pattern) # splitting pattern into list
+    inputList = inputString.split(" ") # splitting input string into words to match pattern 
+    if(len(set(patternList))!=len(set(inputList))): # if lengths are unequal then return false as pattern fails to match
         return False
-    patternDict = inputDict = {}
-    for idx,patternChar in enumerate(patternList):
+    patternDict ,inputDict = {},{} # create dictonaries for each 
+    for idx,patternChar in enumerate(patternList): # map the indieces of the character (in pattern array) to the dictionary as a string
         if patternChar in patternDict.keys():
             patternDict[patternChar]+=str(idx)
         else:
             patternDict[patternChar]=str(idx)
-    for idx,subString in enumerate(inputList):
+    for idx,subString in enumerate(inputList): # map the indieces of the character (in pattern array) to the dictionary as a string
         if subString in inputDict.keys():
             inputDict[subString]+=str(idx)
         else:
             inputDict[subString]=str(idx) 
-    for i in range(len(patternList)-1): 
+    for i in range(len(patternList)-1):  # iterate through either of the list (pattern list or input string list) to ensure the pattern strings of indieces match. If they don't quit and return false
         if(patternDict[patternList[i]]!=inputDict[inputList[i]]):
             return False
     return True
@@ -43,3 +43,5 @@ def patternChecker(pattern: str, inputString: str):
 
 
 print(patternChecker("abba","dog cat cat dog"))
+print(patternChecker("aaaa","dog cat cat dog"))
+print(patternChecker("abba","dog cat cat fish"))

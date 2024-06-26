@@ -9,6 +9,7 @@
     # Example 3:
         # Input: strs = ["a"]
         # Output: [["a"]]
+# Time complexity of this block is O(m)+O(n)
 def anaChecker(input1: str, input2: str):
     input1Dict=input2Dict={}
     for character1 in input1:
@@ -26,12 +27,10 @@ def anaChecker(input1: str, input2: str):
             return False
     return True
 
-
-
 def anagrouper(inputLst: list[str]):
     buffer = set()
     if len(inputLst)==1:
-        return list([inputLst]) 
+        return list([inputLst])
     else:
         finalList=[]
         for idx,element in enumerate(inputLst):
@@ -48,6 +47,19 @@ def anagrouper(inputLst: list[str]):
 
 
 
-print(anagrouper(["eat","tea","tan","ate","nat","bat"]))
-print(anagrouper([""]))
-print(anagrouper(["a"]))
+
+def optimizedAnaGrouper(inputList):
+    buffer = {}
+    for element in inputList:
+        sortWord = ''.join(sorted(element))
+        if sortWord not in buffer:
+            buffer[sortWord]=[]
+        buffer[sortWord].append(element)
+    return list(buffer.values())
+
+
+
+
+print(optimizedAnaGrouper(["eat","tea","tan","ate","nat","bat"]))
+print(optimizedAnaGrouper([""]))
+print(optimizedAnaGrouper(["a"]))
