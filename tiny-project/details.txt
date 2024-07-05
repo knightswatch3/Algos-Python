@@ -1,0 +1,20 @@
+-----Entry-----
+Name: apple
+Age: 22
+Score: 295
+---------------
+-----Entry-----
+Name: Mango
+Age: 23
+Score: 300
+---------------
+-----Entry-----
+Name: berries
+Age: 26
+Score: 321
+---------------
+-----Entry-----
+Name: kettle
+Age: 24
+Score: 301
+---------------
