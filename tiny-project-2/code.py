@@ -27,8 +27,8 @@ def Welcome(firstTime=False):
             authenticationStatus = authorizeUser.sign_in()
             if authenticationStatus['status']:
                 quizInstance = quiz(authenticationStatus['privilege'])
-                response = quizInstance.quiz_operations(authenticationStatus['user'])
-                if response:
-                    
+                quizInstance.quiz_operations(authenticationStatus['user'])
+
+
 
 Welcome(True)

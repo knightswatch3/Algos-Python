@@ -7,15 +7,15 @@ class auth(user):
 
     def sign_up(self):
         print('\n Please enter the following details')
-        uType = str(input('''\n Please enter your choice for type of user: \n
+        uType = int(input('''\n Please enter your choice for type of user: \n
         1. Admin\n
         2. User\n
         
         Note: Enter your choice with number: [1/2]'''))
-        if(uType not in [1,2]):
-            raise RuntimeError('Invalid username entered')
+        if(int(uType) not in [1,2]):
+            raise RuntimeError('Invalid user type choice selected')
         else:
-            self.usertype = uType
+            self.usertype = 'admin' if uType == 1 else 'user'
         uName = str(input('''\n UserName (this should be unique): '''))
         if(len(uName)==0):
             raise RuntimeError('Invalid username entered')

@@ -54,12 +54,14 @@ class user:
             raise RuntimeError("Insufficient information to save the credentials")
         userBaseStorage = open(os.getcwd()+self.userBaseFile, mode='r',encoding='utf-8')
         userBaseList = list(json.load(userBaseStorage))
+        userBaseStorage.close()
         userBaseList.append({
             "user": self.username,
             "pwd": self.encipher(self.password),
             "type": self.usertype
         })
         try:
+            userBaseStorage = open(os.getcwd()+self.userBaseFile, mode='w',encoding='utf-8')
             json.dump(userBaseList,userBaseStorage, indent=4)                           
             return True
         except Exception as e:
